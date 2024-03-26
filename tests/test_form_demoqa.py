@@ -10,7 +10,11 @@ def test_fill_all_fields():
     browser.element('#userEmail').type('ivan.ivanov@gmail.com')
     browser.element('[for="gender-radio-1"]').click()
     browser.element('#userNumber').type('8005553535')
-    browser.element('#dateOfBirthInput').perform(command.select_all).type('31 Jul 1992').press_enter()
+    # browser.element('#dateOfBirthInput').perform(command.select_all).type('31 Jul 1992').press_enter()
+    browser.element('#dateOfBirthInput').click()
+    browser.element('.react-datepicker__year-select').click().element('option[value="1991"]').click()
+    browser.element('.react-datepicker__month-select').click().element('option[value="11"]').click()
+    browser.element('.react-datepicker__day--026').click()
     browser.element('#subjectsInput').type('Maths').press_enter()
     browser.element('[for="hobbies-checkbox-1"]').click()
     browser.element('#uploadPicture').send_keys(os.path.abspath('tests/image.png'))
@@ -25,7 +29,7 @@ def test_fill_all_fields():
             'ivan.ivanov@gmail.com',
             'Male',
             '8005553535',
-            '31 July,1992',
+            '26 December,1991',
             'Maths',
             'Sports',
             'image.png',
