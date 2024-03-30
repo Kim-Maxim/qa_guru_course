@@ -84,13 +84,6 @@ def test_readable_function():
     find_registration_button_on_login_page(page_url="https://companyname.com/login", button_text="Register")
 
 
-def print_name(function, *args):
-    result_name = function.__name__.replace('_', ' ').title()
-    result_args = ', '.join(args)
-    result = f'{result_name} [{result_args}]'
-    return result
-
-
 def print_name(func_name, **kwargs):
     result_name = func_name.replace('_', ' ').title()
     result_args = ', '.join([f"{key}={value}" for key, value in kwargs.items()])
