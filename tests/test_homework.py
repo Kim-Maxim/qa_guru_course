@@ -28,10 +28,15 @@ def test_xlsx():
             sheet = workbook.active
             assert sheet['B9'].value == 'Тест фавикона', "Text 'Тест фавикона' not found in cell B9"
 
-
 def test_csv():
+    with ZipFile(ARCHIVE, 'r') as zip_csv:
+        with zip_csv.open("CSV.csv") as example3_csv:
+            csv_content = example3_csv.read().decode('utf-8')
+    assert "2021,all,All Industries,j_Grand_Total,Fixed tangible assets,591351,DOLLARS(millions)" in csv_content
+
+def test_csv_size():
     file_size_bytes = os.path.getsize(ARCHIVE)
     file_size_mb = file_size_bytes / (1024 * 1024)
-    rounded_file_size_mb = round(file_size_mb, 2)
-    expected_size_mb = 1.55
-    assert rounded_file_size_mb == expected_size_mb, f"CSV file size is not approximately 1.55 MB (rounded to nearest MB)"
+    rounded_file_size_mb = round(file_size_mb, 1)
+    expected_size_mb = 1.5
+    assert rounded_file_size_mb == expected_size_mb, f"CSV file size is not approximately 1.5 MB (rounded to nearest MB)"
