@@ -8,7 +8,7 @@ from selene import browser, have, be
 @allure.title("Successful fill form")
 def test_fill_all_fields():
     with allure.step("Open registration form"): 
-        browser.open('/automation-practice-form')
+        browser.open('https://demoqa.com/automation-practice-form')
     with allure.step("Fill form"):
         browser.element('#firstName').should(be.blank).type('Ivan')
         browser.element('#lastName').should(be.blank).type('Ivanov')

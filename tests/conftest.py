@@ -8,9 +8,6 @@ from utils import attach
 
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser(request):
-    Browser.config.base_url = 'https://demoqa.com'
-    Browser.config.window_height = 1920
-    Browser.config.window_width = 1080
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
