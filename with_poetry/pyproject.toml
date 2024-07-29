@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "with-poetry"
+version = "0.1.0"
+description = ""
+authors = ["ma.kim"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+selene = "2.0.0rc9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
